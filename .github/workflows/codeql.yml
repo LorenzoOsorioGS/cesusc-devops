@@ -1,0 +1,28 @@
+name: SAST - CodeQL
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    - cron: '30 3 * * 1'
+
+jobs:
+  analyze:
+    name: Analise estatica de seguranca (JavaScript)
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inicializar CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript
+
+      - name: Executar analise CodeQL
+        uses: github/codeql-action/analyze@v3

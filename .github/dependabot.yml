@@ -1,0 +1,14 @@
+version: 2
+updates:
+  # SCA: monitora dependencias npm e abre PRs de correcao automaticamente.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+
+  # Mantem as Actions do pipeline atualizadas.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"

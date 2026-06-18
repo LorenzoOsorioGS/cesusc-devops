@@ -1,0 +1,30 @@
+{
+  "name": "cesusc-devops",
+  "version": "1.0.0",
+  "description": "Aplicacao Node.js para a avaliacao N3 - DevOps (CI/CD + Continuous Deployment + DevSecOps)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "jest --coverage --testPathIgnorePatterns=tests/e2e",
+    "test:e2e": "jest tests/e2e --runInBand",
+    "lint": "eslint src"
+  },
+  "keywords": [
+    "devops",
+    "ci",
+    "cd",
+    "cesusc",
+    "github-actions"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "selenium-webdriver": "^4.21.0",
+    "supertest": "^7.0.0"
+  }
+}
