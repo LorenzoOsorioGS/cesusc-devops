@@ -6,7 +6,7 @@ const app = express();
 
 // Versao exibida na pagina/health-check. Altere este valor para demonstrar
 // o "antes e depois" do deploy (CD) durante a apresentacao.
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.2.0';
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
