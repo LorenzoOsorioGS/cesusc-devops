@@ -42,13 +42,26 @@
 <body>
   <main>
     <h1 id="titulo">Pipeline DevOps - N3</h1>
-    <p id="versao">Versao 1.0.0</p>
+    <p id="versao">Carregando versao...</p>
     <p id="mensagem">Aplicacao Node.js implantada automaticamente via CI/CD na AWS EC2.</p>
     <button id="btn-saudacao">Testar API</button>
     <p id="resposta-api"></p>
   </main>
 
   <script>
+    // A versao exibida vem direto da API (/api/health). Assim, basta alterar
+    // APP_VERSION em src/app.js que a pagina atualiza sozinha no proximo deploy.
+    async function carregarVersao() {
+      try {
+        const resp = await fetch('/api/health');
+        const dados = await resp.json();
+        document.getElementById('versao').textContent = 'Versao ' + dados.versao;
+      } catch (e) {
+        document.getElementById('versao').textContent = 'Versao indisponivel';
+      }
+    }
+    carregarVersao();
+
     document.getElementById('btn-saudacao').addEventListener('click', async () => {
       const alvo = document.getElementById('resposta-api');
       try {
