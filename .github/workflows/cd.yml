@@ -10,6 +10,8 @@ jobs:
   deploy:
     name: Deploy na instancia EC2 (Docker)
     runs-on: ubuntu-latest
+    # So roda apos configurar a variavel SERVER_IP (evita falha enquanto a EC2 nao existe).
+    if: vars.SERVER_IP != ''
     steps:
       - name: Conectar via SSH e atualizar o container
         uses: appleboy/ssh-action@v1.0.3
@@ -31,7 +33,7 @@ jobs:
     name: DAST - OWASP ZAP Baseline
     runs-on: ubuntu-latest
     needs: deploy
-    if: ${{ success() }}
+    if: ${{ success() && vars.SERVER_IP != '' }}
     permissions:
       issues: write
     steps:
