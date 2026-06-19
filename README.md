@@ -2,6 +2,10 @@
 
 Aplicação Node.js + Express com pipeline completo de **CI / Continuous Delivery / Continuous Deployment** no GitHub Actions, deploy em **AWS EC2** e camada de **DevSecOps** (SAST, SCA, DAST, Secret Scanning) com **Docker**.
 
+## 🌐 Aplicação no ar (AWS EC2)
+
+**http://3.134.91.41** — aplicação implantada automaticamente via CI/CD em uma instância AWS EC2 (Ubuntu, região us-east-2).
+
 ## Requisitos atendidos
 
 | Requisito | Onde está |
